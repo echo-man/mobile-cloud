@@ -1,31 +1,42 @@
 <!DOCTYPE html>
-<html><head></head><body id="main"><script>
-var main = document.getElementById('main');
+<html>
+<head></head>
+<body id="main">
+	<script>
+		var main = document.getElementById('main');
 
-var myarray = ['a','b'];
-myarray.push('c');
+		var myArray = ['a','b'];
+		myArray.push('c');
 
-var myobject = { 
-  a: 'AAA',
-  b: 'BBB'
-};
-myobject.c = 'CCC';
+		var myObject = { 
+			a: 'AAA',
+			b: 'BBB'
+		};
+		myObject.c = 'CCC';
 
-main.innerHTML =
-  "<pre>" +
-  "myarray[0] is " + myarray[0] + "<br>"+
-  "myarray[1] is " + myarray[1] + "<br>"+
-  "myarray[2] is " + myarray[2] + "<br>"+
+		main.innerHTML =
+		"<pre>" +
+		// print myArray
+		"myArray[0] is " + myArray[0] + "<br>"+
+		"myArray[1] is " + myArray[1] + "<br>"+
+		"myArray[2] is " + myArray[2] + "<br>"+
 
-  "myobject.a is " + myobject.a + "<br>"+
-  "myobject.b is " + myobject.b + "<br>"+
-  "myobject.c is " + myobject.c + "<br>"+
+		//print myObject
+		"myObject.a is " + myObject.a + "<br>"+
+		"myObject.b is " + myObject.b + "<br>"+
+		"myObject.c is " + myObject.c + "<br>"+
 
-  "myobject['a'] is " + myobject['a'] + "<br>"+
-  "myobject['b'] is " + myobject['b'] + "<br>"+
-  "myobject['c'] is " + myobject['c'] + "<br>"+
+		// ['a'] is better written in .a notation (above)
+		//"myObject['a'] is " + myObject['a'] + "<br>"+
+		//"myObject['b'] is " + myObject['b'] + "<br>"+
+		//"myObject['c'] is " + myObject['c'] + "<br>"+
 
-  "myarray  is " + JSON.stringify(myarray) + "<br>"+
-  "myobject is " + JSON.stringify(myobject) + "<br>"+
-  "<pre>"
-</script></body></html>
+		// change array and object into string
+		"myArray  is " + JSON.stringify(myArray) + "<br>"+
+		"myObject is " + JSON.stringify(myObject) + "<br>"+
+		
+		// do not forget the semicolon
+		"<pre>";
+	</script>
+</body>
+</html>
