@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body id="main">
+	<script>
+		//-------------------------------------------------------
+		// reference to the body tag stored in the main variable
+		//-------------------------------------------------------
+		var main = document.getElementById('main');
+
+
+		var log = ['<pre>']; // open pre-tag
+
+
+		function waitForSomething( callback ) {
+			callback('called');
+		}
+
+
+		waitForSomething( function( someText ) {
+			log.push( someText );
+		});
+
+
+
+		log.push('</pre>'); // closed pre-tag
+
+		//------------------------------------------------------
+		// the innerHTML to set the textual content of the page
+		// turn the array into a string using join function
+		//------------------------------------------------------
+		main.innerHTML = log.join('<br>');
+	</script>
+</body>
+</html>
