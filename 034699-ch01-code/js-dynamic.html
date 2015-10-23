@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body id="main">
+	<script>
+		//-------------------------------------------------------
+		// reference to the body tag stored in the main variable
+		//-------------------------------------------------------
+		var main = document.getElementById('main');
+
+
+		var log = ['<pre>']; // open pre-tag
+
+
+		//---------------------------------------------------------
+		// The make function creates another function inside itself
+		//---------------------------------------------------------
+		function make( color ) {
+			var dynamic = function( thing ) {
+				return thing + ' is ' + color;
+			};
+			return dynamic;
+		}
+
+
+		var greenify  = make('green');
+		var blueify = make('blue');
+
+
+		log.push( greenify('grass') );
+		log.push( blueify('sky') );
+
+
+		log.push('</pre>'); // open pre-tag
+
+		//------------------------------------------------------
+		// the innerHTML to set the textual content of the page
+		// turn the array into a string using join function
+		//------------------------------------------------------
+		main.innerHTML = log.join('<br>');
+	</script>
+</body>
+</html>
