@@ -1,6 +1,9 @@
 <!DOCTYPE html> 
 <html> 
 <head> 
+	<!--===================================-->
+	<!--prevent non-mobile zooming behavior-->
+	<!--===================================-->
 	<meta name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0" />
 
 	<style>
@@ -14,14 +17,38 @@
 	</style>
 
 	<script>
+		//---------------------------------------------------------
+		// Hex function generates a random number between 0 and 15,
+		// then returns the hexadecimal digit for that number.
+		// Characters in the string '0123456789abcdef'
+		//---------------------------------------------------------
 		function hex() {
 			var hexchars = "0123456789abcedf";
 			var hexval = Math.floor(16 * Math.random());
 			return hexchars[hexval];
 		}
+
+		//-----------------------------------------------------------
+		// Need to react to the click or tap on the color square.
+		// Use the window.onload event handler to make sure page 
+		// has fully loaded before try to find any elements in it.
+		//-----------------------------------------------------------
 		window.onload = function() {
+
+			//---------------------------------------------------------
+			// Function to get the square color div (div: tapper).
+			//---------------------------------------------------------
 			var tapper = document.getElementById("tapper");
+
+			//---------------------------------------------------------
+			// Onclick event handler to detect clicks on the div.
+			//---------------------------------------------------------
 			tapper.onclick = function() {
+
+				//-------------------------------------------------------
+				// Use the hex function three times to generate a new 
+				// random color and then set the background.
+				//-------------------------------------------------------
 				tapper.style.backgroundColor = "#"+hex()+hex()+hex();
 			};
 		};
