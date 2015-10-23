@@ -4,11 +4,11 @@ var main = document.getElementById('main');
 var log = ['<pre>']
 
 function waitForSomething( callback ) {
-  callback('called')
+	callback('called')
 }
 
 waitForSomething( function( someText ) {
-  log.push( someText )
+	log.push( someText )
 })
 
 log.push('</pre>')
