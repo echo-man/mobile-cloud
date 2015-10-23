@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+<style>
+* { margin:0px; padding:0px; }
+</style>
+
+<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+<script>
+var map;
+
+function onload() {
+  var locdiv = document.getElementById('loc');
+  var mapdiv = document.getElementById('map')
+
+  // center on Indianapolis, IN
+  var latlng = new google.maps.LatLng(39.768376,-86.158042);
+  var options = {
+    zoom: 15,
+    center: latlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    disableDefaultUI:true
+  };
+
+  map = new google.maps.Map(mapdiv, options);
+  locdiv.innerHTML = map.getCenter();
+
+  google.maps.event.addListener(map, 'center_changed', function() {
+     locdiv.innerHTML = map.getCenter();
+  });
+}
+
+function findme() {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var loc = new google.maps.LatLng(
+      position.coords.latitude,
+      position.coords.longitude );
+    map.setCenter(loc);
+  });
+}
+
+findme();
+</script>
+</head>
+<body onload="onload()">
+  <div id="map" style="width:320px; height:300px"></div>
+  <img src="point.png" style="position:absolute;top:96px;left:140px">
+  <input type="button" onclick="findme()" value="Find Me">
+  <div id="loc"></div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html><head></head><body id="main"><script>
+var main = document.getElementById('main');
+
+var myarray = ['a','b'];
+myarray.push('c');
+
+var myobject = { 
+  a: 'AAA',
+  b: 'BBB'
+};
+myobject.c = 'CCC';
+
+main.innerHTML =
+  "<pre>" +
+  "myarray[0] is " + myarray[0] + "<br>"+
+  "myarray[1] is " + myarray[1] + "<br>"+
+  "myarray[2] is " + myarray[2] + "<br>"+
+
+  "myobject.a is " + myobject.a + "<br>"+
+  "myobject.b is " + myobject.b + "<br>"+
+  "myobject.c is " + myobject.c + "<br>"+
+
+  "myobject['a'] is " + myobject['a'] + "<br>"+
+  "myobject['b'] is " + myobject['b'] + "<br>"+
+  "myobject['c'] is " + myobject['c'] + "<br>"+
+
+  "myarray  is " + JSON.stringify(myarray) + "<br>"+
+  "myobject is " + JSON.stringify(myobject) + "<br>"+
+  "<pre>"
+</script></body></html>

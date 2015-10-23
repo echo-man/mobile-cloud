@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html><head></head><body id="main"><script>
+var main = document.getElementById('main');
+var log = ['<pre>']
+
+function make( color ) {
+  var dynamic = function( thing ) {
+    return thing + ' is ' + color
+  }
+  return dynamic
+}
+
+var greenify  = make('green')
+var blueify = make('blue')
+
+log.push( greenify('grass') )
+log.push( blueify('sky') )
+
+log.push('</pre>')
+main.innerHTML = log.join('<br>')
+</script></body></html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html><html><head>
+  <title>Geolocation</title>
+  <meta name="viewport" content="initial-scale=1.0" />
+</head><body> 
+<img id="map" />
+<p id="msg"></p>
+<script>
+var img = document.getElementById('map');
+var msg = document.getElementById('msg');
+navigator.geolocation.getCurrentPosition(
+  function(position){
+    var latitude  = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    var timestamp = new Date(position.timestamp);
+    msg.innerHTML = 
+      'Latitude:  '+latitude+'<br />'+
+      'Longitude: '+longitude+'<br />'+
+      'Timestamp: '+timestamp;
+    img.src = 
+      "http://maps.google.com/maps/api/staticmap?sensor=true&"+
+      "center="+latitude+","+longitude+
+      "&zoom=14&size=300x200&markers=color:red|"+
+      latitude+","+longitude;
+  },
+  function(error){
+    var txt;
+    switch(error.code) {
+      case error.PERMISSION_DENIED:    txt = 'Permission denied'; break;
+      case error.POSITION_UNAVAILABLE: txt = 'Position unavailable'; break;
+      case error.TIMEOUT:              txt = 'Position lookup timed out'; break;
+      default: txt = 'Unknown position.'
+    }
+    msg.innerHTML = txt;
+  }
+);
+</script>
+</body></html>

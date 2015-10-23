@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <meta name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" /> 
+
+  <style>
+  #main { width:320px; height:480px; padding:0px; margin:0px }
+  img.flower {
+    display:block;
+    width:128px; height:96px;
+    position:absolute; top:166px; left:96px;
+  }
+  img.rightout { -webkit-transform: translate( 400%) }
+  img.leftout  { -webkit-transform: translate(-400%) }
+  </style>
+  
+  <script src="jquery.js"></script>
+
+  <script src="touch.js"></script>
+</head> 
+<body><div id="main"> 
+
+<img id="img0" src="flower0.jpg" class="flower">
+<img id="img1" src="flower1.jpg" class="flower rightout">
+<img id="img2" src="flower2.jpg" class="flower rightout">
+
+</div>
+</body>
+</html>

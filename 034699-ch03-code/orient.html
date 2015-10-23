@@ -1,0 +1,45 @@
+<!DOCTYPE html><html><head>
+  <title>Orientation</title>
+  <meta name="viewport" content="initial-scale=1.0" />
+</head>
+<body>
+<div id="orient"><div>
+<script>
+function getorientation() {
+  var orientation = 'portrait';
+
+  if( undefined != window.orientation ) {
+    if( 90 == window.orientation
+        || -90 == window.orientation ) 
+    {
+      orientation = 'landscape';
+    }
+  }
+  else if( window.innerHeight < window.innerWidth ) {
+     orientation = 'landscape';     
+  }
+
+  return orientation;
+}
+
+function orientationchanged(callback) {
+  if( 'onorientationchange' in window ) {
+    window.onorientationchange = function() {
+      callback(getorientation());
+    }
+  }
+  else {
+    window.onresize = function() {
+      callback(getorientation());
+    }
+  }
+}
+
+var orient = document.getElementById('orient');
+orient.innerText = getorientation();
+
+orientationchanged(function(orientation){
+  orient.innerText = orientation;
+});
+</script>
+</body></html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <script src="jquery.js"></script>
+</head> 
+<body> 
+
+<h1>Heading</h1>
+<p id="para1">Paragraph 1</p>
+<p id="para2">Paragraph 2</p>
+<p id="para3">Paragraph 3</p>
+
+<script>
+$(function(){
+  var para = $('<p>');
+  para.attr('id','end');
+  para.html('<i>The End</i>');
+  $('body').append(para);
+
+  $('p').css({color:'green'});
+  $('#para2').css({color:'red'});
+
+  $('h1').hide();
+  $('h1').fadeIn(500);
+  $('#para3').slideUp(500);
+
+  $('#end').click(function(){
+    var fontsize = parseInt( $(this).css('font-size'), 10 );
+    $(this).css({'font-size':2+fontsize});
+  });
+
+});
+</script>
+</body>
+</html>
