@@ -4,7 +4,7 @@
 <body id="main">
 	<script>
 		//-------------------------------------------------------
-		// reference to the body tag stored in the main variable
+		// reference to the body tag stored in the main variable.
 		//-------------------------------------------------------
 		var main = document.getElementById('main');
 
@@ -13,7 +13,9 @@
 
 
 		//---------------------------------------------------------
-		// The make function creates another function inside itself
+		// The make function creates another function inside itself.
+		// Assigns the dynamically created function to the variable 
+		// 'dynamic' and then returns this variable.
 		//---------------------------------------------------------
 		function make( color ) {
 			var dynamic = function( thing ) {
@@ -34,8 +36,8 @@
 		log.push('</pre>'); // open pre-tag
 
 		//------------------------------------------------------
-		// the innerHTML to set the textual content of the page
-		// turn the array into a string using join function
+		// The innerHTML to set the textual content of the page.
+		// Turn the array into a string using join function.
 		//------------------------------------------------------
 		main.innerHTML = log.join('<br>');
 	</script>
